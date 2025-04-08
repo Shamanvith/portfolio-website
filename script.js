@@ -1,35 +1,41 @@
 document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('.site-nav a');
     const sections = document.querySelectorAll('section');
+    const firstSection = document.getElementById('about'); // Specifically target the first section
+    const otherSections = document.querySelectorAll('section:not(#about)'); // Target sections *other* than About
+    const header = document.querySelector('.site-header');
+    const nav = document.querySelector('.site-nav');
+    const hamburger = document.querySelector('.hamburger-menu');
+
+    let isAnimating = false;
 
     // --- INITIAL SETUP ---
-    // Hide sections initially
-    gsap.set(sections, {
-        opacity: 0,
-        y: 50
-    });
 
-    // Show the first section immediately
-    gsap.to(sections[0], {
+    // Initially reveal the first section ALWAYS
+    gsap.to(firstSection, {
         opacity: 1,
         y: 0,
         duration: 1,
         ease: 'power2.out'
     });
-    let isAnimating = false; // Flag to prevent animation conflicts
+
+    // Optionally, hide *other* sections if needed (or do this in CSS)
+    gsap.set(otherSections, {
+        opacity: 0,
+        y: 50
+    });
 
     // --- SMOOTH SCROLL FUNCTION ---
     function smoothScroll(e) {
         e.preventDefault();
-        if (isAnimating) return; // If animation is in progress, exit
+        if (isAnimating) return;
 
-        isAnimating = true; // Set flag to true
+        isAnimating = true;
 
         const targetId = this.getAttribute('href').substring(1);
         const targetSection = document.getElementById(targetId);
         const targetPosition = targetSection.offsetTop - 50;
 
-        // --- SCROLL ANIMATION ---
         gsap.to(window, {
             duration: 1,
             scrollTo: {
@@ -38,11 +44,10 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             ease: 'power2.inOut',
             onComplete: () => {
-                // --- SECTION APPEARANCE ANIMATION ---
                 gsap.fromTo(targetSection, {
                         opacity: 0,
                         y: 50
-                    }, // From
+                    },
                     {
                         opacity: 1,
                         y: 0,
@@ -50,11 +55,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         ease: 'power2.out',
                         onComplete: () => {
                             isAnimating = false;
-                        } // Reset flag when done
+                        }
                     }
                 );
 
-                // --- FADE OUT OTHER SECTIONS ---
                 sections.forEach(section => {
                     if (section !== targetSection && gsap.getProperty(section, "opacity") === 1) {
                         gsap.to(section, {
@@ -67,30 +71,33 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
         });
+
+        // If it's mobile, also close the menu after clicking
+        if (window.innerWidth <= 768) {
+            nav.classList.remove('active');
+            header.classList.remove('hidden'); // Show header
+        }
     }
 
-    // --- EVENT LISTENERS ---
     navLinks.forEach(link => {
         link.addEventListener('click', smoothScroll);
     });
 
-    // --- MOBILE HEADER MINIMIZATION ---
-    if (window.innerWidth <= 768) { // Check if it's a mobile device
-        let lastScrollTop = 0;
-        window.addEventListener('scroll', function() {
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            let header = document.querySelector('.site-header');
+    // --- HAMBURGER MENU TOGGLE ---
+    hamburger.addEventListener('click', function() {
+        nav.classList.toggle('active');
+        header.classList.toggle('hidden'); // Toggle header visibility
+    });
 
-            console.log('ScrollTop:', scrollTop, 'LastScrollTop:', lastScrollTop); // Debugging
-
-            if (scrollTop > lastScrollTop && scrollTop > 50) { // Scrolling down (and past 50px)
-                header.classList.add('minimized');
-                console.log('Header minimized'); // Debugging
-            } else { // Scrolling up (or at the top)
-                header.classList.remove('minimized');
-                console.log('Header restored'); // Debugging
-            }
-            lastScrollTop = scrollTop;
-        });
-    }
+    // --- HEADER HIDE ON SCROLL (MOBILE & DESKTOP) ---
+    let lastScrollTop = 0;
+    window.addEventListener('scroll', function() {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrollTop > lastScrollTop && scrollTop > 50) {
+            header.classList.add('hidden');
+        } else {
+            header.classList.remove('hidden');
+        }
+        lastScrollTop = scrollTop;
+    });
 });
