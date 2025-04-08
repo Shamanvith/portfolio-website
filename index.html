@@ -121,4 +121,92 @@
                             Global Fiscal Year within the company's financial systems. This initiative significantly improved
                             accuracy in financial reporting and facilitated smoother transitions by automating the process of
                             data alignment, reconciliation, and generation of transition reports.</p>
-                        <p class="
+                        <p class="tech">Technologies: SQL, Python, AWS, Financial Systems</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section skills-section">
+            <div class="container">
+                <h2 class="section-title animate__animated animate__fadeInDown">Skills</h2>
+                <div class="section-content skills-content animate__animated animate__fadeInUp">
+                    <div class="skills-grid">
+                        <div>
+                            <h4>Programming Languages</h4>
+                            <p>Python, R, SQL, JavaScript, C, React, Docker, Kubernetes</p>
+                        </div>
+                        <div>
+                            <h4>Tools & Technologies</h4>
+                            <p>Snowflake, Jupyter Notebook, RStudio, AWS, GCP, Azure Data Studio, MS SQL Server, Oracle SQL
+                                Developer, Tableau, Qlik, Power BI, Looker, JIRA, Azure DevOps, Figma, Microsoft Office
+                                Suite
+                            </p>
+                        </div>
+                        <div>
+                            <h4>Frameworks</h4>
+                            <p>Flask, Django, Pandas, Matplotlib, Seaborn, NumPy</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section contact-section">
+            <div class="container">
+                <h2 class="section-title animate__animated animate__fadeInDown">Contact Me</h2>
+                <div class="section-content contact-content animate__animated animate__fadeInUp">
+                    <p>Feel free to reach out to me!</p>
+                    <p><i class="fas fa-envelope"></i> <a
+                            href="mailto:shamanvith2002@gmail.com">shamanvith2002@gmail.com</a></p>
+                    <p><i class="fab fa-linkedin"></i> <a
+                            href="https://www.linkedin.com/in/shamanvith-pavuluri-9616191a6">LinkedIn</a></p>
+                    <p><i class="fas fa-phone"></i> +91 8978855995</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2024 Shamanvith Pavuluri. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="ip-address"></div>
+    <script src="script.js"></script>
+    <script>
+        // --- IP ADDRESS RETRIEVAL (WITH CAUTION) ---
+        fetch('https://api.ipify.org?format=json') // Using ipify API
+            .then(response => response.json())
+            .then(data => {
+                const ipAddressDiv = document.getElementById('ip-address');
+                ipAddressDiv.textContent = 'Your IP Address: ' + data.ip;
+                ipAddressDiv.style.display = 'block';
+                // Make the div visible
+                console.log('Visitor IP Address:', data.ip);
+
+                // --- SEND IP TO YOUR SERVER (Replace with your server endpoint) ---
+                fetch('/track-visitor', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            ip: data.ip
+                        })
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            console.log('IP address sent to server');
+                        } else {
+                            console.error('Failed to send IP address to server');
+                        }
+                    })
+                    .catch(error => console.error('Error sending IP:', error));
+            })
+            .catch(error => console.error('Error fetching IP:', error));
+    </script>
+</body>
+
+</html>
