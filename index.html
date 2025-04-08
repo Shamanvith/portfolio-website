@@ -173,40 +173,7 @@
         </div>
     </footer>
 
-    <div id="ip-address"></div>
-    <script src="script.js"></script>
-    <script>
-        // --- IP ADDRESS RETRIEVAL (WITH CAUTION) ---
-        fetch('https://api.ipify.org?format=json') // Using ipify API
-            .then(response => response.json())
-            .then(data => {
-                const ipAddressDiv = document.getElementById('ip-address');
-                ipAddressDiv.textContent = 'Your IP Address: ' + data.ip;
-                ipAddressDiv.style.display = 'block';
-                // Make the div visible
-                console.log('Visitor IP Address:', data.ip);
-
-                // --- SEND IP TO YOUR SERVER (Replace with your server endpoint) ---
-                fetch('/track-visitor', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            ip: data.ip
-                        })
-                    })
-                    .then(response => {
-                        if (response.ok) {
-                            console.log('IP address sent to server');
-                        } else {
-                            console.error('Failed to send IP address to server');
-                        }
-                    })
-                    .catch(error => console.error('Error sending IP:', error));
-            })
-            .catch(error => console.error('Error fetching IP:', error));
-    </script>
+    
 </body>
 
 </html>
