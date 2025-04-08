@@ -36,4 +36,61 @@ document.addEventListener('DOMContentLoaded', function() {
                 y: targetPosition,
                 autoKill: false
             },
-            ease: 'power2.in
+            ease: 'power2.inOut',
+            onComplete: () => {
+                // --- SECTION APPEARANCE ANIMATION ---
+                gsap.fromTo(targetSection, {
+                        opacity: 0,
+                        y: 50
+                    }, // From
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 1,
+                        ease: 'power2.out',
+                        onComplete: () => {
+                            isAnimating = false;
+                        } // Reset flag when done
+                    }
+                );
+
+                // --- FADE OUT OTHER SECTIONS ---
+                sections.forEach(section => {
+                    if (section !== targetSection && gsap.getProperty(section, "opacity") === 1) {
+                        gsap.to(section, {
+                            opacity: 0,
+                            y: 50,
+                            duration: 0.5,
+                            ease: 'power1.in'
+                        });
+                    }
+                });
+            }
+        });
+    }
+
+    // --- EVENT LISTENERS ---
+    navLinks.forEach(link => {
+        link.addEventListener('click', smoothScroll);
+    });
+
+    // --- MOBILE HEADER MINIMIZATION ---
+    if (window.innerWidth <= 768) { // Check if it's a mobile device
+        let lastScrollTop = 0;
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            let header = document.querySelector('.site-header');
+
+            console.log('ScrollTop:', scrollTop, 'LastScrollTop:', lastScrollTop); // Debugging
+
+            if (scrollTop > lastScrollTop && scrollTop > 50) { // Scrolling down (and past 50px)
+                header.classList.add('minimized');
+                console.log('Header minimized'); // Debugging
+            } else { // Scrolling up (or at the top)
+                header.classList.remove('minimized');
+                console.log('Header restored'); // Debugging
+            }
+            lastScrollTop = scrollTop;
+        });
+    }
+});
