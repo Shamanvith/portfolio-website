@@ -53,13 +53,13 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
-    /* Allow wrapping */
+    flex-wrap: wrap; /* Allow wrapping */
 }
 
 .site-title {
     font-size: 2em;
     margin: 0;
+    /* Desktop: Left aligned */
 }
 
 .site-nav ul {
@@ -67,14 +67,12 @@ body {
     padding: 0;
     margin: 0;
     display: flex;
-    flex-wrap: wrap;
-    /* Allow wrapping */
-    justify-content: flex-end;
-    /* Default to right-align */
+    /* Desktop: Inline */
 }
 
 .site-nav li {
     margin-left: 20px;
+    /* Desktop: Spacing between links */
 }
 
 .site-nav a {
@@ -89,46 +87,41 @@ body {
 }
 
 .download-button {
-    margin-left: 20px;
+    /* Desktop: As is */
 }
 
 /* Mobile Styles */
 @media (max-width: 768px) {
+    .header-container {
+        align-items: flex-start; /* Align items to the start on mobile */
+    }
+
     .site-title {
-        flex-basis: 100%;
-        /* Full width on mobile */
-        text-align: center;
-        /* Center on mobile */
-        margin-bottom: 10px;
-        /* Spacing */
+        flex-basis: 100%; /* Full width on mobile */
+        text-align: center; /* Center on mobile */
+        margin-bottom: 10px; /* Spacing */
     }
 
     .site-nav ul {
-        justify-content: center;
-        /* Center on mobile */
-        margin-top: 10px;
-        /* Spacing */
+        flex-wrap: wrap; /* Wrap links on mobile */
+        justify-content: center; /* Center links on mobile */
+        margin-top: 10px; /* Spacing */
     }
 
     .site-nav li {
-        margin: 5px;
-        /* Adjust spacing */
+        margin: 5px; /* Adjust spacing between links on mobile */
     }
 
     .download-button {
-        margin-left: 0;
-        /* Reset desktop margin */
+        margin-left: 0; /* Reset desktop margin */
         margin-top: 10px;
-        flex-basis: 100%;
-        /* Full width on mobile */
-        text-align: center;
-        /* Center on mobile */
+        flex-basis: 100%; /* Full width on mobile */
+        text-align: center; /* Center on mobile */
     }
 
     .site-header {
         transition: transform 0.3s ease;
-        transform: translateY(0) !important;
-        /* Initial position */
+        transform: translateY(0) !important; /* Initial position */
         top: 0 !important;
     }
 
