@@ -1,9 +1,11 @@
 /* General Styles */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* A modern font */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* A modern font */
     margin: 0;
     line-height: 1.6;
-    background-color: #f4f4f4; /* Light background */
+    background-color: #f4f4f4;
+    /* Light background */
     color: #333;
 }
 
@@ -34,7 +36,8 @@ body {
     transform: translateX(-50%);
     height: 4px;
     width: 50px;
-    background-color: #007bff; /* Accent color */
+    background-color: #007bff;
+    /* Accent color */
 }
 
 .section-content {
@@ -43,12 +46,15 @@ body {
 
 /* Header */
 .site-header {
-    background-color: #222; /* Darker header */
+    background-color: #222;
+    /* Darker header */
     color: white;
     padding: 10px 0;
     position: sticky;
     top: 0;
     z-index: 1000;
+    transition: transform 0.3s ease;
+    /* Add transition for smooth animation */
 }
 
 .header-container {
@@ -248,64 +254,4 @@ body {
 
 .button:hover {
     background-color: #0056b3;
-}
-
-/* Animations (from your existing CSS) */
-.animate__fadeInDown {
-    animation-duration: 1s;
-    animation-name: fadeInDown;
-}
-
-.animate__fadeInUp {
-    animation-duration: 1s;
-    animation-name: fadeInUp;
-}
-
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .header-container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .site-nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .site-nav li {
-        margin: 10px 0;
-    }
-
-    .projects-content {
-        grid-template-columns: 1fr; /* Single column on smaller screens */
-    }
-
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
 }
