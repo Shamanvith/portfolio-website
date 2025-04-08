@@ -256,15 +256,17 @@ body {
     background-color: #0056b3;
 }
 
+/* ... (Your existing CSS) ... */
+
 /* Mobile-Specific Styles */
 @media (max-width: 768px) {
     .site-header {
         transition: transform 0.3s ease;
-        transform: translateY(0);
-        /* Ensure header is initially visible */
+        transform: translateY(0) !important; /* Ensure header is initially visible */
+        top: 0 !important; /* Make sure it sticks to the top */
     }
 
     .site-header.minimized {
-        transform: translateY(-100%);
-        /* Move the header off-screen */
+        transform: translateY(-100%) !important; /* Move the header off-screen */
     }
+}
