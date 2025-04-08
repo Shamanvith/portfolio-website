@@ -47,36 +47,46 @@ body {
 /* Header */
 .site-header {
     background-color: #222;
-    /* Darker header */
     color: white;
     padding: 10px 0;
     position: sticky;
     top: 0;
     z-index: 1000;
     transition: transform 0.3s ease;
-    /* Add transition for smooth animation */
 }
 
 .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    /* Allow content to wrap on smaller screens */
 }
 
 .site-title {
     font-size: 2em;
     margin: 0;
+    flex-basis: 100%;
+    /* Take full width on smaller screens */
+    text-align: center;
+    /* Center the title on smaller screens */
 }
 
 .site-nav ul {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 10px 0;
+    /* Add some vertical margin */
     display: flex;
+    flex-wrap: wrap;
+    /* Allow navigation links to wrap */
+    justify-content: center;
+    /* Center navigation links */
 }
 
 .site-nav li {
-    margin-left: 20px;
+    margin: 5px;
+    /* Reduce margin between links */
 }
 
 .site-nav a {
@@ -84,189 +94,36 @@ body {
     color: white;
     font-weight: bold;
     transition: color 0.3s ease;
+    padding: 8px 12px;
+    /* Add some padding to links */
+    border-radius: 5px;
+    /* Add rounded corners to links */
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Add a subtle background */
 }
 
 .site-nav a:hover {
     color: #007bff;
 }
 
-/* About Section */
-.about-section {
-    background-color: #fff;
-}
-
-.about-content p {
-    font-size: 1.1em;
-    color: #555;
-}
-
-/* Experience Section */
-.experience-section {
-    background-color: #f9f9f9;
-}
-
-.experience-item {
-    margin-bottom: 30px;
-    padding: 20px;
-    border-left: 5px solid #007bff;
-    background-color: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.experience-item:hover {
-    transform: translateY(-5px);
-}
-
-.experience-item h3 {
-    margin-top: 0;
-    color: #333;
-}
-
-.experience-item .date {
-    font-style: italic;
-    color: #777;
-    margin-bottom: 10px;
-}
-
-.experience-item ul {
-    list-style: disc;
-    margin-left: 20px;
-}
-
-/* Projects Section */
-.projects-section {
-    background-color: #fff;
-}
-
-.projects-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: 30px;
-}
-
-.project-item {
-    background-color: #f0f0f0;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease;
-}
-
-.project-item:hover {
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
-}
-
-.project-item h3 {
-    margin-top: 0;
-    color: #333;
-}
-
-.project-item p {
-    color: #555;
-}
-
-.project-item .tech {
-    font-size: 0.9em;
-    color: #777;
-}
-
-/* Skills Section */
-.skills-section {
-    background-color: #f9f9f9;
-}
-
-.skills-content {
-    /* Add specific styling if needed */
-}
-
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-gap: 20px;
-}
-
-.skills-grid div {
-    background-color: white;
-    padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.skills-grid h4 {
-    margin-top: 0;
-    color: #333;
-}
-
-.skills-grid p {
-    color: #555;
-}
-
-/* Contact Section */
-.contact-section {
-    background-color: #fff;
-}
-
-.contact-content {
+.download-button {
+    margin-top: 10px;
+    /* Add some margin */
+    flex-basis: 100%;
+    /* Take full width */
     text-align: center;
+    /* Center the button */
 }
-
-.contact-content p {
-    font-size: 1.1em;
-    color: #555;
-    margin-bottom: 15px;
-}
-
-.contact-content a {
-    color: #007bff;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.contact-content a:hover {
-    color: #0056b3;
-}
-
-.contact-content i {
-    margin-right: 8px;
-}
-
-/* Footer */
-.site-footer {
-    background-color: #222;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    font-size: 0.9em;
-}
-
-/* Buttons */
-.button {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    transition: background-color 0.3s ease;
-}
-
-.button:hover {
-    background-color: #0056b3;
-}
-
-/* ... (Your existing CSS) ... */
 
 /* Mobile-Specific Styles */
 @media (max-width: 768px) {
     .site-header {
         transition: transform 0.3s ease;
-        transform: translateY(0) !important; /* Ensure header is initially visible */
-        top: 0 !important; /* Make sure it sticks to the top */
+        transform: translateY(0) !important;
+        top: 0 !important;
     }
 
     .site-header.minimized {
-        transform: translateY(-100%) !important; /* Move the header off-screen */
+        transform: translateY(-100%) !important;
     }
 }
