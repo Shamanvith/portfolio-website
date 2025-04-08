@@ -1,11 +1,9 @@
 /* General Styles */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* A modern font */
     margin: 0;
     line-height: 1.6;
     background-color: #f4f4f4;
-    /* Light background */
     color: #333;
 }
 
@@ -25,7 +23,6 @@ body {
     text-align: center;
     color: #333;
     position: relative;
-    /* Underline effect */
 }
 
 .section-title::after {
@@ -37,12 +34,9 @@ body {
     height: 4px;
     width: 50px;
     background-color: #007bff;
-    /* Accent color */
 }
 
-.section-content {
-    /* Add some padding if needed */
-}
+.section-content {}
 
 /* Header */
 .site-header {
@@ -60,33 +54,27 @@ body {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    /* Allow content to wrap on smaller screens */
+    /* Allow wrapping */
 }
 
 .site-title {
     font-size: 2em;
     margin: 0;
-    flex-basis: 100%;
-    /* Take full width on smaller screens */
-    text-align: center;
-    /* Center the title on smaller screens */
 }
 
 .site-nav ul {
     list-style: none;
     padding: 0;
-    margin: 10px 0;
-    /* Add some vertical margin */
+    margin: 0;
     display: flex;
     flex-wrap: wrap;
-    /* Allow navigation links to wrap */
-    justify-content: center;
-    /* Center navigation links */
+    /* Allow wrapping */
+    justify-content: flex-end;
+    /* Default to right-align */
 }
 
 .site-nav li {
-    margin: 5px;
-    /* Reduce margin between links */
+    margin-left: 20px;
 }
 
 .site-nav a {
@@ -94,12 +82,6 @@ body {
     color: white;
     font-weight: bold;
     transition: color 0.3s ease;
-    padding: 8px 12px;
-    /* Add some padding to links */
-    border-radius: 5px;
-    /* Add rounded corners to links */
-    background-color: rgba(255, 255, 255, 0.1);
-    /* Add a subtle background */
 }
 
 .site-nav a:hover {
@@ -107,23 +89,214 @@ body {
 }
 
 .download-button {
-    margin-top: 10px;
-    /* Add some margin */
-    flex-basis: 100%;
-    /* Take full width */
-    text-align: center;
-    /* Center the button */
+    margin-left: 20px;
 }
 
-/* Mobile-Specific Styles */
+/* Mobile Styles */
 @media (max-width: 768px) {
+    .site-title {
+        flex-basis: 100%;
+        /* Full width on mobile */
+        text-align: center;
+        /* Center on mobile */
+        margin-bottom: 10px;
+        /* Spacing */
+    }
+
+    .site-nav ul {
+        justify-content: center;
+        /* Center on mobile */
+        margin-top: 10px;
+        /* Spacing */
+    }
+
+    .site-nav li {
+        margin: 5px;
+        /* Adjust spacing */
+    }
+
+    .download-button {
+        margin-left: 0;
+        /* Reset desktop margin */
+        margin-top: 10px;
+        flex-basis: 100%;
+        /* Full width on mobile */
+        text-align: center;
+        /* Center on mobile */
+    }
+
     .site-header {
         transition: transform 0.3s ease;
         transform: translateY(0) !important;
+        /* Initial position */
         top: 0 !important;
     }
 
     .site-header.minimized {
         transform: translateY(-100%) !important;
     }
+}
+
+/* About Section */
+.about-section {
+    background-color: #fff;
+}
+
+.about-content p {
+    font-size: 1.1em;
+    color: #555;
+}
+
+/* Experience Section */
+.experience-section {
+    background-color: #f9f9f9;
+}
+
+.experience-item {
+    margin-bottom: 30px;
+    padding: 20px;
+    border-left: 5px solid #007bff;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.experience-item:hover {
+    transform: translateY(-5px);
+}
+
+.experience-item h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.experience-item .date {
+    font-style: italic;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.experience-item ul {
+    list-style: disc;
+    margin-left: 20px;
+}
+
+/* Projects Section */
+.projects-section {
+    background-color: #fff;
+}
+
+.projects-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 30px;
+}
+
+.project-item {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.project-item:hover {
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.project-item h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.project-item p {
+    color: #555;
+}
+
+.project-item .tech {
+    font-size: 0.9em;
+    color: #777;
+}
+
+/* Skills Section */
+.skills-section {
+    background-color: #f9f9f9;
+}
+
+.skills-content {}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 20px;
+}
+
+.skills-grid div {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.skills-grid h4 {
+    margin-top: 0;
+    color: #333;
+}
+
+.skills-grid p {
+    color: #555;
+}
+
+/* Contact Section */
+.contact-section {
+    background-color: #fff;
+}
+
+.contact-content {
+    text-align: center;
+}
+
+.contact-content p {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.contact-content a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-content a:hover {
+    color: #0056b3;
+}
+
+.contact-content i {
+    margin-right: 8px;
+}
+
+/* Footer */
+.site-footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.9em;
+}
+
+/* Buttons */
+.button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #0056b3;
 }
