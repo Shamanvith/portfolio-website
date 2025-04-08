@@ -1,26 +1,39 @@
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
+document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('.site-nav a');
+    const sections = document.querySelectorAll('section');
 
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
+    // --- INITIAL SETUP ---
+    // Hide sections initially
+    gsap.set(sections, {
+        opacity: 0,
+        y: 50
     });
-});
 
-//  Optional:  Simple scroll-to-top button
-const footer = document.querySelector('footer');
-const scrollButton = document.createElement('button');
-scrollButton.innerHTML = '<i class="fas fa-arrow-up"></i>';
-scrollButton.classList.add('scroll-to-top');
-scrollButton.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-document.body.appendChild(scrollButton);
+    // Show the first section immediately
+    gsap.to(sections[0], {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: 'power2.out'
+    });
+    let isAnimating = false; // Flag to prevent animation conflicts
 
-//  Show button after scrolling a bit
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) {
-        scrollButton.classList.add('show');
-    }
+    // --- SMOOTH SCROLL FUNCTION ---
+    function smoothScroll(e) {
+        e.preventDefault();
+        if (isAnimating) return; // If animation is in progress, exit
+
+        isAnimating = true; // Set flag to true
+
+        const targetId = this.getAttribute('href').substring(1);
+        const targetSection = document.getElementById(targetId);
+        const targetPosition = targetSection.offsetTop - 50;
+
+        // --- SCROLL ANIMATION ---
+        gsap.to(window, {
+            duration: 1,
+            scrollTo: {
+                y: targetPosition,
+                autoKill: false
+            },
+            ease: 'power2.in
