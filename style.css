@@ -55,7 +55,8 @@ section {
     margin: auto;
 }
 
-h1, h2 {
+h1,
+h2 {
     margin-bottom: 20px;
     color: #444;
 }
@@ -74,7 +75,8 @@ p {
 
 #home h1 {
     font-size: 2.5em;
-    color: #f0f0f0; /* Light color for the name */
+    color: #f0f0f0;
+    /* Light color for the name */
 }
 
 #home p {
@@ -132,7 +134,8 @@ p {
     margin: auto;
 }
 
-#contact input, #contact textarea {
+#contact input,
+#contact textarea {
     width: 100%;
     padding: 12px;
     margin: 10px 0;
@@ -162,10 +165,12 @@ footer {
     background: #333;
     color: white;
 }
+
 #contact {
     text-align: center;
     padding: 60px 20px;
-    background-color: #f0f0f0; /* Light background for contrast */
+    background-color: #f0f0f0;
+    /* Light background for contrast */
 }
 
 #contact h2 {
@@ -179,7 +184,8 @@ footer {
 }
 
 #contact a {
-    color: #ffa500; /* Use your website's accent color */
+    color: #ffa500;
+    /* Use your website's accent color */
     text-decoration: none;
     transition: color 0.3s;
 }
@@ -190,23 +196,41 @@ footer {
 
 #contact i {
     margin-right: 10px;
-    color: #555; /* Icon color */
-<<<<<<< HEAD
+    color: #555;
+    /* Icon color */
 }
+
 .college-info {
-    display: flex; /* Use flexbox to align items */
-    justify-content: space-between; /* Push items to edges */
-    align-items: center; /* Vertically align items */
+    display: flex;
+    /* Use flexbox to align items */
+    justify-content: space-between;
+    /* Push items to edges */
+    align-items: center;
+    /* Vertically align items */
 }
 
 .college-info h3 {
-    margin-right: auto; /* Push the year to the right */
-    font-weight: bold; /* Make college name bold */
+    margin-right: auto;
+    /* Push the year to the right */
+    font-weight: bold;
+    /* Make college name bold */
 }
 
 .degree-year {
-    font-weight: bold; /* Make year bold */
+    font-weight: bold;
+    /* Make year bold */
 }
-=======
+
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
->>>>>>> 31398f4a52baaca83f93116cf3da5867841c02e5
+
+.job-header h3 {
+    margin-right: auto;
+}
+
+.job-duration {
+    font-weight: bold;
+}
