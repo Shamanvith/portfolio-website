@@ -1,170 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shamanvith Pavuluri - Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    </head>
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shamanvith Pavuluri | Data Analyst & Engineer</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+</head>
 <body>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="Resume.pdf" class="button download-button" download>Download Resume</a></li>
+        </ul>
+    </nav>
 
-    <header class="site-header">
-        <div class="container header-container">
-            <div class="hamburger-menu">
-                <i class="fas fa-bars"></i>
-            </div>
-            <h1 class="site-title">Shamanvith Pavuluri</h1>
-            <nav class="site-nav">
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="Resume.pdf" class="button download-button" download>Download Resume</a></li>
-                </ul>
-            </nav>
+    <section id="home">
+        <h1>Hi, I'm Shamanvith Pavuluri 👋</h1>
+        <p>Data Analyst | Future Data Engineer | Explorer of Patterns in Data</p>
+        <p>I'm a results-driven Data Analyst with a background in Electronics and Communication Engineering and hands-on experience in transforming raw data into actionable insights. Passionate about data engineering, I specialize in SQL, Python, and dashboard creation to support data-driven decision-making across supply chain operations. I bring strong analytical thinking, a collaborative mindset, and a continuous drive to learn and implement modern data solutions—from optimizing workflows with automation to exploring cloud platforms and LLM-powered query tools. My goal is to build scalable data systems that make information more accessible and impactful for organizations.</p>
+        <button onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">
+            Connect With Me
+        </button>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-container">
+            <div class="skill-card">Python</div>
+            <div class="skill-card">SQL</div>
+            <div class="skill-card">Snowflake</div>
+            <div class="skill-card">Tableau</div>
+            <div class="skill-card">Qlik</div>
+            <div class="skill-card">Power BI</div>
+            <div class="skill-card">Docker</div>
+            <div class="skill-card">Data Modeling</div>
+            <div class="skill-card">AWS</div>
+            <div class="skill-card">Azure</div>
         </div>
-    </header>
+    </section>
 
-    <main class="site-main">
-        <section id="about" class="section about-section">
-            <div class="container">
-                <h2 class="section-title animate__animated animate__fadeInDown">About Me</h2>
-                <div class="section-content about-content animate__animated animate__fadeInUp">
-                    <p>I'm a results-driven Data Analyst with a background in Electronics and Communication Engineering
-                        and hands-on experience in transforming raw data into actionable insights. Passionate about data
-                        engineering, I specialize in SQL, Python, and dashboard creation to support data-driven
-                        decision-making across supply chain operations. I bring strong analytical thinking, a collaborative
-                        mindset, and a continuous drive to learn and implement modern data solutions—from optimizing
-                        workflows with automation to exploring cloud platforms and LLM-powered query tools. My goal is to
-                        build scalable data systems that make information more accessible and impactful for organizations.</p>
-                </div>
-            </div>
-        </section>
+    <section id="projects">
+    <h2>Projects</h2>
+    <div class="project">
+        <h3>LLM-Based SQL Query Generator for Data Insights</h3>
+        <p>Played an important role in building a LLM model integrated with a company's database to automatically generate SQL queries based on natural language commands. The solution also executes the queries and displays results alongside the generated query for easy decision-making. This project leverages Snowflake for database management and Python for Al modelling.</p>
+        <p class="tech">Technologies: Python, SQL, Snowflake, Natural Language Processing (NLP), AI Model</p>
+    </div>
+    <div class="project">
+        <h3>Supply Chain Database and Visualization Dashboards</h3>
+        <p>Developed and maintained supply chain database tables, ensuring data integrity and efficient retrieval. Created interactive visualization dashboards to provide actionable insights for supply chain optimization.</p>
+        <p class="tech">Technologies: SQL, Power BI, Snowflake</p>
+    </div>
+    <div class="project">
+        <h3>Late Order Analysis</h3>
+        <p>Conducted in-depth analysis of late order patterns to identify root causes and improve delivery performance. Developed reports and dashboards to visualize key metrics and track improvement initiatives.</p>
+        <p class="tech">Technologies: SQL, Python, Tableau</p>
+    </div>
+    
+</section>
 
-        <section id="experience" class="section experience-section">
-            <div class="container">
-                <h2 class="section-title animate__animated animate__fadeInDown">Experience</h2>
-                <div class="section-content experience-content animate__animated animate__fadeInUp">
-                    <div class="experience-item">
-                        <h3>Data Engineer - Neiman Marcus Group</h3>
-                        <p class="date">Aug 2024 - Present</p>
-                        <ul>
-                            <li>Engineered comprehensive solutions within an Agile framework for the Semantics Layer team,
-                                addressing complex business challenges through meticulous requirements analysis, codebase
-                                enhancement, rigorous testing protocols, user acceptance validation, and seamless
-                                implementation. These efforts yielded scalable and efficient results for the supply chain and
-                                financial dashboards.
-                            </li>
-                            <li>Conceptualized and executed advanced technical architectures leveraging Python, SQL, and
-                                Snowflake, with a focus on data modeling and governance to streamline supply chain analytics
-                                and financial systems on cloud platforms such as AWS and Azure.</li>
-                            <li>Partnered strategically with multidisciplinary stakeholders, encompassing business units and
-                                technical collaborators, to extract precise data insights, refine operational workflows, and
-                                craft bespoke solutions aligned with overarching business objectives, driving enhanced
-                                operational and financial performance.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects" class="section projects-section">
-            <div class="container">
-                <h2 class="section-title animate__animated animate__fadeInDown">Projects</h2>
-                <div class="section-content projects-content animate__animated animate__fadeInUp">
-                    <div class="project-item">
-                        <h3>Fraud Transaction Filtering and Analysis</h3>
-                        <p>Developed a robust data pipeline to identify and filter fraudulent transactions using SQL and
-                            Python. Implemented advanced filtering algorithms based on transaction patterns, anomaly
-                            detection, and rule-based logic to detect irregularities.</p>
-                        <p class="tech">Technologies: SQL, Python</p>
-                    </div>
-                    <div class="project-item">
-                        <h3>Financial Department Dashboards</h3>
-                        <p>Designed SQL queries and integrated Tableau and Qlik dashboards for finance analytics, ensuring
-                            99% data accuracy.</p>
-                        <p class="tech">Technologies: SQL, Tableau, Qlik</p>
-                    </div>
-                    <div class="project-item">
-                        <h3>Data Modelling for Efficient Data Warehousing</h3>
-                        <p>Designed and implemented a comprehensive data model to support efficient data storage and
-                            analysis, utilizing Docker for containerization.</p>
-                        <p class="tech">Technologies: Data Modeling, Docker</p>
-                    </div>
-                    <div class="project-item">
-                        <h3>LLM-Based SQL Query Generator for Data Insights</h3>
-                        <p>Played an important role in building a LLM model integrated with a company's database to
-                            automatically generate SQL queries based on natural language commands. The solution also
-                            executes the queries and displays results alongside the generated query for easy decision-making.
-                            This project leverages Snowflake for database management and Python for Al modelling.</p>
-                        <p class="tech">Technologies: Python, SQL, Snowflake, Natural Language Processing (NLP), AI Model</p>
-                    </div>
-                    <div class="project-item">
-                        <h3>Fiscal Year Transition System</h3>
-                        <p>Played an important role in the transformation of fiscal year data from NMG's Fiscal Year to Saks
-                            Global Fiscal Year within the company's financial systems. This initiative significantly improved
-                            accuracy in financial reporting and facilitated smoother transitions by automating the process of
-                            data alignment, reconciliation, and generation of transition reports.</p>
-                        <p class="tech">Technologies: SQL, Python, AWS, Financial Systems</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="skills" class="section skills-section">
-            <div class="container">
-                <h2 class="section-title animate__animated animate__fadeInDown">Skills</h2>
-                <div class="section-content skills-content animate__animated animate__fadeInUp">
-                    <div class="skills-grid">
-                        <div>
-                            <h4>Programming Languages</h4>
-                            <p>Python, R, SQL, JavaScript, C, React, Docker, Kubernetes</p>
-                        </div>
-                        <div>
-                            <h4>Tools & Technologies</h4>
-                            <p>Snowflake, Jupyter Notebook, RStudio, AWS, GCP, Azure Data Studio, MS SQL Server, Oracle SQL
-                                Developer, Tableau, Qlik, Power BI, Looker, JIRA, Azure DevOps, Figma, Microsoft Office
-                                Suite
-                            </p>
-                        </div>
-                        <div>
-                            <h4>Frameworks</h4>
-                            <p>Flask, Django, Pandas, Matplotlib, Seaborn, NumPy</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="section contact-section">
-            <div class="container">
-                <h2 class="section-title animate__animated animate__fadeInDown">Contact Me</h2>
-                <div class="section-content contact-content animate__animated animate__fadeInUp">
-                    <p>Feel free to reach out to me!</p>
-                    <p><i class="fas fa-envelope"></i> <a
-                            href="mailto:shamanvith2002@gmail.com">shamanvith2002@gmail.com</a></p>
-                    <p><i class="fab fa-linkedin"></i> <a
-                            href="https://www.linkedin.com/in/shamanvith-pavuluri-9616191a6">LinkedIn</a></p>
-                    <p><i class="fas fa-phone"></i> +91 8978855995</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="site-footer">
-        <div class="container">
-            <p>&copy; 2024 Shamanvith Pavuluri. All rights reserved.</p>
-        </div>
+    
+    <footer>
+        <p>Made with ❤️ by Shamanvith Pavuluri | 2024</p>
     </footer>
-
-    <script src="script.js"></script>
 </body>
-
 </html>
