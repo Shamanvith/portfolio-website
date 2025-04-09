@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,10 +8,12 @@
     <link rel="stylesheet" href="style.css" />
     <script defer src="script.js"></script>
 </head>
+
 <body>
     <nav>
         <ul>
             <li><a href="#home">Home</a></li>
+            <li><a href="#experience">Experience</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -25,6 +28,20 @@
         <button onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">
             Connect With Me
         </button>
+    </section>
+
+    <section id="experience">
+        <h2>Experience</h2>
+        <div class="experience-item">
+            <h3>Propelsys Technologies - Neiman Marcus Group (Client)</h3>
+            <p class="job-title">Data Analyst (Semantic Layer)</p>
+            <p class="job-duration">Aug 2024 - Present</p>
+            <ul class="job-description">
+                <li>Engineered comprehensive solutions within an Agile framework for the Semantics Layer team, addressing complex business challenges through meticulous requirements analysis, codebase enhancement, rigorous testing protocols, user acceptance validation, and seamless implementation. These efforts yielded scalable and efficient results for the supply chain and financial dashboards.</li>
+                <li>Conceptualized and executed advanced technical architectures leveraging Python, SQL, and Snowflake, with a focus on data modeling and governance to streamline supply chain analytics and financial systems on cloud platforms such as AWS and Azure.</li>
+                <li>Partnered strategically with multidisciplinary stakeholders, encompassing business units and technical collaborators, to extract precise data insights, refine operational workflows, and craft bespoke solutions aligned with overarching business objectives, driving enhanced operational and financial performance.</li>
+            </ul>
+        </div>
     </section>
 
     <section id="skills">
@@ -44,35 +61,49 @@
     </section>
 
     <section id="projects">
-    <h2>Projects</h2>
-    <div class="project">
-        <h3>LLM-Based SQL Query Generator for Data Insights</h3>
-        <p>Played an important role in building a LLM model integrated with a company's database to automatically generate SQL queries based on natural language commands. The solution also executes the queries and displays results alongside the generated query for easy decision-making. This project leverages Snowflake for database management and Python for Al modelling.</p>
-        <p class="tech">Technologies: Python, SQL, Snowflake, Natural Language Processing (NLP), AI Model</p>
-    </div>
-    <div class="project">
-        <h3>Supply Chain Database and Visualization Dashboards</h3>
-        <p>Developed and maintained supply chain database tables, ensuring data integrity and efficient retrieval. Created interactive visualization dashboards to provide actionable insights for supply chain optimization.</p>
-        <p class="tech">Technologies: SQL, Power BI, Snowflake</p>
-    </div>
-    <div class="project">
-        <h3>Late Order Analysis</h3>
-        <p>Conducted in-depth analysis of late order patterns to identify root causes and improve delivery performance. Developed reports and dashboards to visualize key metrics and track improvement initiatives.</p>
-        <p class="tech">Technologies: SQL, Python, Tableau</p>
-    </div>
-    
-</section>
+        <h2>Projects</h2>
+        <div class="project">
+            <h3>LLM-Based SQL Query Generator for Data Insights</h3>
+            <p>Played an important role in building a LLM model integrated with a company's database to automatically generate SQL queries based on natural language commands. The solution also executes the queries and displays results alongside the generated query for easy decision-making. This project leverages Snowflake for database management and Python for Al modelling.</p>
+            <p class="tech">Technologies: Python, SQL, Snowflake, Natural Language Processing (NLP), AI Model</p>
+        </div>
+        <div class="project">
+            <h3>Supply Chain Database and Visualization Dashboards</h3>
+            <p>Developed and maintained supply chain database tables, ensuring data integrity and efficient retrieval. Created interactive visualization dashboards to provide actionable insights for supply chain optimization.</p>
+            <p class="tech">Technologies: SQL, Power BI, Snowflake</p>
+        </div>
+        <div class="project">
+            <h3>Late Order Analysis</h3>
+            <p>Conducted in-depth analysis of late order patterns to identify root causes and improve delivery performance. Developed reports and dashboards to visualize key metrics and track improvement initiatives.</p>
+            <p class="tech">Technologies: SQL, Python, Tableau</p>
+        </div>
+
+    </section>
 
     <section id="contact">
-    <h2>Connect With Me</h2>
-    <p>Feel free to reach out to me!</p>
-    <p><i class="fas fa-envelope"></i> <a href="mailto:shamanvith2002@gmail.com">shamanvith2002@gmail.com</a></p>
-    <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/shamanvith-pavuluri-9616191a6">LinkedIn</a></p>
-    <p><i class="fas fa-phone"></i> +91 8978855995</p>
-</section>
+        <h2>Connect With Me</h2>
+        <p>Feel free to reach out to me!</p>
+        <p><i class="fas fa-envelope"></i> <a href="mailto:shamanvith2002@gmail.com">shamanvith2002@gmail.com</a></p>
+        <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/shamanvith-pavuluri-9616191a6">LinkedIn</a></p>
+        <p><i class="fas fa-phone"></i> +91 8978855995</p>
+    </section>
 
     <footer>
         <p>Made by Shamanvith Pavuluri | 2024</p>
     </footer>
+    <script>
+        const navLinks = document.querySelectorAll('nav a');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
+
 </html>
