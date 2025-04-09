@@ -191,4 +191,22 @@ footer {
 #contact i {
     margin-right: 10px;
     color: #555; /* Icon color */
+<<<<<<< HEAD
 }
+.college-info {
+    display: flex; /* Use flexbox to align items */
+    justify-content: space-between; /* Push items to edges */
+    align-items: center; /* Vertically align items */
+}
+
+.college-info h3 {
+    margin-right: auto; /* Push the year to the right */
+    font-weight: bold; /* Make college name bold */
+}
+
+.degree-year {
+    font-weight: bold; /* Make year bold */
+}
+=======
+}
+>>>>>>> 31398f4a52baaca83f93116cf3da5867841c02e5
